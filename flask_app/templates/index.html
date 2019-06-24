@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>NTSB Investigation Simulator 2019</title>
+  <style>
+        body {background-image: linear-gradient(#DEFDFF, #F1DEFF);
+              font-family: sans-serif;
+              padding-left: 30px;
+              padding-top: 10px;
+              padding-bottom: 50px;
+              text-align: left;
+              max-width: 500px;
+              margin: auto;}
+        th, td {padding-right: 16px;
+                padding-top: 4px;}
+        #headline {font-size: 20px;}
+        input {font-size: 40px;}
+  </style>
+</head>
+
+<body>
+  <h1>Welcome to <i><b>NTSB Investigation Simulator 2019!</b></i></h1>
+  <p>Can you predict if an aviation accident was caused by <b>HUMAN ERROR</b>, or by <B>A MALEVOLENT COMBINATION OF WEATHER, ANIMAL INTERFERENCE, AND MECHANICAL FAILURE</B>?</p>
+  <p>And can you guess better than <b>Crashify.ai™</b> and save your job from automation?</p>
+  <p>Somewhere in America, a bad thing has happened in the sky. <b>Now is your chance to prove yourself.</b></p>
+  <p>Your intrepid team has gathered the following information:</p>
+  <table>
+        <tr>
+          <td colspan="2"><b><span id="headline">Aircraft</span></b></td>
+        </tr>
+        <tr>
+          <td>It's an airplane (instead of a blimp or something)</td>
+          <td>{{ craft['is_plane'][0] }}</td>
+        </tr>
+        <tr>
+          <td>Gross weight of craft (lbs)</td>
+          <td>{{ craft['gross_weight'][0] }}</td>
+        </tr>
+        <tr>
+          <td>Lifetime hours spent in the air</td>
+          <td>{{ craft['airframe_hours'][0] }}</td>
+        </tr>
+        <tr>
+          <td>Flight hours since last inspection</td>
+          <td>{{ craft['since_inspection'][0] }}</td>
+        </tr>
+        <tr>
+          <td>Number of seats</td>
+          <td>{{ craft['seats'][0] }}</td>
+        </tr>
+        <tr>
+          <td>It's a home-built craft</td>
+          <td>{{ craft['homebuilt_coded'][0] }}</td>
+        </tr>
+        <tr>
+          <td colspan="2"><b><span id="headline">Pilot</span></b></td>
+        </tr>
+        <tr>
+          <td>Professional pilot</td>
+          <td>{{ craft['pro_pilot'][0] }}</td>
+        </tr>
+        <tr>
+          <td>Pilot age</td>
+          <td>{{ craft['pilot_age'][0] }}</td>
+        </tr>
+        <tr>
+          <td>Pilot certification level</td>
+          <td>{{ craft['cert_level'][0] }}</td>
+        </tr>
+        <tr>
+          <td>Second pilot onboard</td>
+          <td>{{ craft['scnd_pilot'][0] }}</td>
+        </tr>
+        <tr>
+          <td colspan="2"><b><span id="headline">Flight</span></b></td>
+        </tr>
+        <tr>
+          <td>Accident occurred in mid-air</td>
+          <td>{{ craft['mid_air_acc'][0] }}</td>
+        </tr>
+        <tr>
+          <td>Instructional flight</td>
+          <td>{{ craft['instructional_flight'][0] }}</td>
+        </tr>
+        <tr>
+          <td>Personal flight</td>
+          <td>{{ craft['personal_flight'][0] }}</td>
+        </tr>
+        <tr>
+          <td>Distance to airport from accident site</td>
+          <td>{{ craft['airport_dist'][0] }}</td>
+        </tr>
+        <tr>
+          <td colspan="2"><b><span id="headline">Weather</span></b></td>
+        </tr>
+        <tr>
+          <td>Visibility (miles)</td>
+          <td>{{ craft['visibility'][0] }}</td>
+        </tr>
+        <tr>
+          <td>Wind speed</td>
+          <td>{{ craft['wind_velocity'][0] }}</td>
+        </tr>
+        <tr>
+          <td>Occurred during daylight</td>
+          <td>{{ craft['light_out'][0] }}</td>
+        </tr>
+      </table>
+    <p><b>So.. what is it, Investigator?</b></p>
+    <form action="/results">
+    <input type="submit" name="select" value="Human error" />
+    <input type="submit" name="select" value="Just bad luck" />
+    </form>
+</body>
+
+</html>

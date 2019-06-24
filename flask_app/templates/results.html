@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>NTSB Investigation Simulator 2019</title>
+  <style>
+        html {height: 100%;}
+        body {height: 100%;
+              background-image: linear-gradient(#DEFDFF, #F1DEFF);
+              background-repeat: no-repeat;
+              background-attachment: fixed;
+              font-family: sans-serif;
+              padding-left: 30px;
+              padding-top: 10px;
+              text-align: left;
+              max-width: 500px;
+              margin: auto;}
+        #correct {color: green}
+        #incorrect {color: red}
+  </style>
+</head>
+
+<body>
+    {% if guess == 0 %}
+    <p>You guessed <b>human error.</b></p>
+    {% else %}
+    <p>You guessed <b>NO human error.</b></p>
+    {% endif %}
+    {% if prediction == 0 %}
+    <p>Crashify.ai™ predicts <b>human error.</b> It is {{ confidence }} confident.</p>
+    {% else %}
+    <p>Crashify.ai™ predicts <b>NO human error.</b> It is {{ confidence }} confident.</p>
+    {% endif %}
+    {% if reality == 0 %}
+    <p>In reality, there WAS <b>human error.</b></p>
+    {% else %}
+    <p>In reality, there was <b>NO human error.</b></p>
+    {% endif %}
+    {% if guess==reality==prediction %}
+    <p><span id="correct">You and Crashify.ai™ were <b>both right!</b></span></p>
+    {% elif guess==reality!=prediction %}
+    <p><span id="correct"><b>You're right</b>, and you beat Crashify.ai™ at its own game!</span></p>
+    {% elif guess!=reality==prediction %}
+    <p><span id="incorrect">Crashify.ai™ was right, and <b>you were wrong!</b> You're fired!</span></p>
+    {% elif guess==prediction!=reality %}
+    <p><span id="incorrect">You're both wrong! <b>Chaos reigns!</b></span></p>
+    {% endif %}
+    <p><a href="{{ report_url }}" target="_blank">More information about this accident.</a></p>
+    <p><a href="/">Play again?</a></p>
+</body>
+
+</html>
