@@ -7,3 +7,5 @@ This uses the NTSB’s [eADMS database](https://app.ntsb.gov/avdata/), converted
 `model.ipynb` contains all of the code for feature generation, model development, and validation. 
 
 I also built a [simple game](http://crashify.herokuapp.com/) in Flask, where features of a random aircraft from the dataset are shown, and the user chooses whether they think the accident was caused by the pilot or by other factors only. Their response is compared to that of the model. It’s fun! The code and templates appear in `flask_app`.
+
+If you want much, much more detail, I've written a [blog post](https://coolposts.online/2019/05/08/project-three/) about this project.
